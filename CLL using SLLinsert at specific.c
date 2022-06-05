@@ -1,0 +1,77 @@
+#include<stdio.h>
+#include<stdlib.h>
+       struct node{
+        	int data;
+	        struct node *next;
+          };
+          struct node newNode;
+          struct node *head=NULL;
+          //prototype
+          void insertBegin(int);
+//          void insertEnd(int val);
+     void insertSpecific(int ,int );
+     void displaydata();
+
+   void insertBegin(int val)
+             {
+     	struct node *newNode;
+	    newNode=(struct node*)malloc(sizeof(struct node));
+	    newNode->data=val;
+	
+    	if(head==NULL)
+       	{
+	    newNode->next=newNode;
+		head=newNode;
+	    }
+	   else{
+	   	struct node *temp=head;
+	   	while(temp->next!=head)
+	   	{
+	   		temp=temp->next;
+		   }
+		   temp->next=newNode;
+		   newNode->next=head;
+	   		head=newNode;
+      	}
+      	printf("%d Value inserted at begining\n",val);
+      	
+}
+void insertSpecific(int val,int pos)
+{
+	struct node *newNode,*temp=head;
+	newNode=(struct node*)malloc(sizeof(struct node));
+	newNode->data=val;
+	newNode->next=head;
+	//traversing
+	while(pos!=30)     //while(temp->data!=30)
+	{
+		temp=temp->next;
+		pos--;
+	}
+	newNode->next=temp->next;
+	temp->next=newNode;
+	printf(" %d inserted at any specified value success \n",val);    }
+void displaydata()
+{
+	struct node *temp=head;
+	do{
+		printf("%d\n",temp->data);
+		temp=temp->next;
+	}
+	while(temp!=head);
+	}
+
+   int main()
+   {
+   	
+    insertBegin(10);
+    insertBegin(20);
+    insertBegin(30);
+    insertBegin(40);
+    displaydata();
+    printf("The values are in CLL using SLL\n");  
+    insertSpecific(60,3);
+    displaydata();
+	return 0;
+   }
+
