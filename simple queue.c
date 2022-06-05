@@ -11,21 +11,23 @@ int Queue[SIZE],front=-1,rear=-1;
   void isFull();
   void isEmpty();
   //insertion
-   void enQueue(int val)
-   {
-   	if(rear==SIZE-1)
-   	{
-   		printf("queue is full insertion not possible \n:");
-	   }
-	   else{
-	   	front=0;
-	   	rear++;
-	   	Queue[rear]=val;
-	   	printf("%d is inserted successfully\n",val);
-	   }
-   }
-   
-   //deletion
+  //It means itnserting a new element in to the queue . It is performed in the rear.
+         void enQueue(int val)
+                 {
+   	            if(rear==SIZE-1)
+   	                  {
+   	              	printf("queue is full insertion not possible \n:");
+	                   }
+	                 else{
+	               	  front=0;
+	                	rear++;
+	                  	Queue[rear]=val;
+	                	printf("%d is inserted successfully\n",val);
+	                         }
+                 }
+    
+   //deletion 
+   // It means deleting an element in to the queue . It is performed in the front.
     void deQueue()
     {
     	if(rear==-1)
@@ -56,6 +58,7 @@ int Queue[SIZE],front=-1,rear=-1;
 	}
 	
 	//print the top element
+	 //It means to show the top of the queue
 	
 	void peek()
 	{
